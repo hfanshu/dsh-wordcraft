@@ -1,0 +1,7 @@
+# dsh-wordcraft bundle patch
+
+- insert:
+    - id: wordcraft
+      name: 'dsh-wordcraft-plugin'
+      config:
+        enabled: true

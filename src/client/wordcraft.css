@@ -1,0 +1,331 @@
+/* dsh-wordcraft panel — aligned with host theme via --dsw-alias-* variables. */
+
+.dsh-wc-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: var(--dsw-alias-surface-default, transparent);
+  color: var(--dsw-alias-text-primary, inherit);
+}
+
+.dsh-wc-toolbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--dsw-alias-border-subtle, rgba(127, 127, 127, 0.25));
+  background: var(--dsw-alias-surface-raised, transparent);
+}
+
+.dsh-wc-tab-title-icon {
+  flex: none;
+  margin-right: 4px;
+}
+
+.dsh-wc-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.dsh-wc-field-label {
+  font-size: 12px;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.dsh-wc-select {
+  max-width: min(220px, 100%);
+  flex: 0 1 auto;
+  font: inherit;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: var(--dsw-radius-md, 6px);
+  border: 1px solid var(--dsw-alias-border-subtle, rgba(127, 127, 127, 0.35));
+  background: var(--dsw-alias-surface-default, transparent);
+  color: inherit;
+}
+
+.dsh-wc-btn {
+  font: inherit;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: var(--dsw-radius-md, 6px);
+  border: 1px solid var(--dsw-alias-border-subtle, rgba(127, 127, 127, 0.35));
+  background: var(--dsw-alias-surface-default, transparent);
+  color: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dsh-wc-btn:hover:not(:disabled) {
+  background: var(--dsw-alias-surface-hover, rgba(127, 127, 127, 0.12));
+}
+
+.dsh-wc-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.dsh-wc-btn-primary {
+  background: var(--dsw-alias-accent-default, #4b9eff);
+  border-color: transparent;
+  color: #fff;
+}
+
+.dsh-wc-btn-small {
+  padding: 1px 8px;
+  font-size: 11px;
+}
+
+/* Not a containing block: the picker anchors to the whole toolbar row so it
+   spans the pane even when the picker button sits mid-row in a narrow column. */
+.dsh-wc-picker-wrap {
+  position: static;
+}
+
+.dsh-wc-picker {
+  position: absolute;
+  top: 100%;
+  left: 10px;
+  right: 10px;
+  z-index: 40;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--dsw-alias-border-subtle, rgba(127, 127, 127, 0.35));
+  border-radius: 0 0 var(--dsw-radius-md, 8px) var(--dsw-radius-md, 8px);
+  background: var(--dsw-alias-surface-raised, #fff);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.dsh-wc-picker-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  font-size: 12px;
+  opacity: 0.85;
+  border-bottom: 1px solid var(--dsw-alias-border-subtle, rgba(127, 127, 127, 0.2));
+}
+
+.dsh-wc-picker-hint,
+.dsh-wc-picker-empty {
+  padding: 6px 10px;
+  font-size: 12px;
+  opacity: 0.65;
+}
+
+.dsh-wc-picker-list {
+  max-height: 320px;
+  overflow: auto;
+}
+
+.dsh-wc-picker-item {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1px;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  font-size: 12px;
+  padding: 6px 10px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.dsh-wc-picker-item:hover {
+  background: var(--dsw-alias-surface-hover, rgba(127, 127, 127, 0.12));
+}
+
+.dsh-wc-picker-item.is-active {
+  background: var(--dsw-alias-surface-selected, rgba(75, 158, 255, 0.15));
+}
+
+.dsh-wc-picker-name {
+  font-weight: 600;
+}
+
+.dsh-wc-picker-path {
+  font-size: 11px;
+  opacity: 0.55;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dsh-wc-file {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  min-width: 0;
+  max-width: min(260px, 100%);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dsh-wc-file-none {
+  opacity: 0.4;
+}
+
+.dsh-wc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dsw-alias-border-subtle, rgba(127, 127, 127, 0.4));
+  flex: none;
+}
+
+.dsh-wc-dot.is-dirty {
+  background: var(--dsw-alias-warning-default, #f5a623);
+}
+
+.dsh-wc-dirty-label {
+  opacity: 0.75;
+  font-size: 11px;
+}
+
+.dsh-wc-spacer {
+  flex: 1;
+}
+
+.dsh-wc-hint {
+  font-size: 11px;
+  opacity: 0.55;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dsh-wc-saveas {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-bottom: 1px solid var(--dsw-alias-border-subtle, rgba(127, 127, 127, 0.25));
+  background: var(--dsw-alias-surface-raised, transparent);
+}
+
+.dsh-wc-input {
+  flex: 1;
+  min-width: 120px;
+  font: inherit;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: var(--dsw-radius-md, 6px);
+  border: 1px solid var(--dsw-alias-border-subtle, rgba(127, 127, 127, 0.35));
+  background: var(--dsw-alias-surface-default, transparent);
+  color: inherit;
+}
+
+.dsh-wc-status {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  font-size: 12px;
+  padding: 4px 10px;
+  border: 0;
+  cursor: pointer;
+}
+
+.dsh-wc-status-ok {
+  background: var(--dsw-alias-success-subtle, rgba(52, 211, 153, 0.15));
+  color: inherit;
+}
+
+.dsh-wc-status-error {
+  background: var(--dsw-alias-danger-subtle, rgba(239, 68, 68, 0.16));
+  color: inherit;
+}
+
+.dsh-wc-frame-wrap {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+.dsh-wc-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.dsh-wc-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.dsh-wc-setup {
+  margin: auto;
+  max-width: 460px;
+  padding: 16px;
+  font-size: 13px;
+  line-height: 1.6;
+  border: 1px solid var(--dsw-alias-border-subtle, rgba(127, 127, 127, 0.35));
+  border-radius: var(--dsw-radius-md, 8px);
+  background: var(--dsw-alias-surface-raised, transparent);
+}
+
+/* "Open in Documents" button on conversation file cards. */
+.dsh-wc-card-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font: inherit;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: var(--dsw-radius-md, 6px);
+  border: 1px solid var(--dsw-alias-border-subtle, rgba(127, 127, 127, 0.35));
+  background: var(--dsw-alias-surface-default, transparent);
+  color: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dsh-wc-card-open:hover {
+  background: var(--dsw-alias-surface-hover, rgba(127, 127, 127, 0.12));
+}
+
+/* The default-opener switch row on the bundle's Plugins page. */
+.dsh-wc-setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.dsh-wc-setting-text {
+  min-width: 0;
+}
+
+.dsh-wc-setting-title {
+  font-size: 13px;
+  color: var(--dsw-alias-text-primary, inherit);
+}
+
+.dsh-wc-setting-desc {
+  margin-top: 2px;
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.6;
+}

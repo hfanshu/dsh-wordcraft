@@ -1,0 +1,30 @@
+<!doctype html>
+<!--
+  WordCraft bridge page — hosted by the plugin's webServer route
+  (/api/dsh-wordcraft/app.html) and embedded by the panel in a same-origin
+  iframe. It loads the SuperDoc vendor build from /api/dsh-wordcraft/vendor/*
+  and speaks the wordcraft:* postMessage protocol with the parent panel
+  (see app/app.js and src/client/bridge.ts).
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WordCraft</title>
+  <link rel="stylesheet" href="/api/dsh-wordcraft/vendor/superdoc.min.css">
+  <style>
+    html, body { margin: 0; height: 100%; background: #fff; }
+    #wc-root { display: flex; flex-direction: column; height: 100%; }
+    #wc-toolbar { min-height: 40px; border-bottom: 1px solid #e5e7eb; flex: none; }
+    #wc-editor { flex: 1; min-height: 0; }
+  </style>
+</head>
+<body>
+  <div id="wc-root">
+    <div id="wc-toolbar"></div>
+    <div id="wc-editor"></div>
+  </div>
+  <script src="/api/dsh-wordcraft/vendor/superdoc.min.js"></script>
+  <script src="/api/dsh-wordcraft/app.js"></script>
+</body>
+</html>

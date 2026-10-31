@@ -1,0 +1,75 @@
+{
+  "name": "dsh-wordcraft-plugin",
+  "description": "WordCraft document panel plugin for DeepSeek Harness: embed the SuperDoc web editor in a right-sidebar tab, open workspace .docx files into it, and save back through the host.",
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": "^22.13.0 || >=24.0.0"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-connection"
+      ],
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "scripts": {
+    "fetch-wordcraft": "node scripts/fetch-wordcraft.mjs",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "tsc -p tsconfig.server.json",
+    "build:client": "node esbuild.config.mjs",
+    "setup": "npm install && npm run fetch-wordcraft && npm run build",
+    "test": "node test/routes.mjs && node test/client-apply.mjs"
+  },
+  "files": [
+    "lib/**/*.js",
+    "src",
+    "app",
+    "static",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "wordcraft",
+    "superdoc",
+    "docx",
+    "word"
+  ],
+  "dependencies": {
+    "@deepseek-ai/cosmokit": "~1.8.6",
+    "@deepseek-ai/schemastery": "^3.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "esbuild": "^0.28.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "typescript": "^7.0.2"
+  }
+}

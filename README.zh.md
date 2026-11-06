@@ -1,6 +1,6 @@
 # dsh-wordcraft
 
-DeepSeek Harness 的 Word 文档编辑插件：将 [SuperDoc](https://github.com/Harbour-Enterprises/SuperDoc) 网页编辑器（基于 ProseMirror、直写 OOXML、无需服务端）嵌入右侧边栏页签，打开工作区中的 `.docx` 文档并通过宿主写回。架构与 [dsh-gridcraft](https://github.com/15217814598/dsh-gridcraft) 一致。
+DeepSeek Harness 的 Word 文档编辑插件：将 [SuperDoc](https://github.com/Harbour-Enterprises/SuperDoc) 网页编辑器（基于 ProseMirror、直写 OOXML、无需服务端）嵌入右侧边栏页签，打开工作区中的 `.docx` 文档并通过宿主写回。架构与 [dsh-gridcraft](https://github.com/hfanshu/dsh-gridcraft) 一致。
 
 ## 功能
 

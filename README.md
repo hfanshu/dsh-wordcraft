@@ -1,6 +1,6 @@
 # dsh-wordcraft
 
-Word document editing for DeepSeek Harness: embeds the [SuperDoc](https://github.com/Harbour-Enterprises/SuperDoc) web editor (ProseMirror, direct OOXML — no server) in a right-sidebar tab, opens workspace `.docx` files into it, and saves back through the host. The architecture mirrors [dsh-gridcraft](https://github.com/15217814598/dsh-gridcraft).
+Word document editing for DeepSeek Harness: embeds the [SuperDoc](https://github.com/Harbour-Enterprises/SuperDoc) web editor (ProseMirror, direct OOXML — no server) in a right-sidebar tab, opens workspace `.docx` files into it, and saves back through the host. The architecture mirrors [dsh-gridcraft](https://github.com/hfanshu/dsh-gridcraft).
 
 中文说明见 [README.zh.md](./README.zh.md)。
 
